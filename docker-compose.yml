@@ -25,7 +25,9 @@ services:
       - --collation-server=utf8mb4_0900_ai_ci
       - --default-time-zone=+00:00
     ports:
-      - "3306:3306"
+      # Override when a local MySQL already uses 3306, e.g. MYSQL_PORT=3307
+      # (the Scala jobs read the same MYSQL_PORT variable)
+      - "${MYSQL_PORT:-3306}:3306"
     volumes:
       - mysql-data:/var/lib/mysql
       # Creates warehouse_stock, global_stock, website_stats + grants (first start only)
