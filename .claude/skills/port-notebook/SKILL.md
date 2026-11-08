@@ -15,7 +15,7 @@ Source folder (override with `$COURSE_DIR` if it moved):
 |---|---|---|---|
 | code_00_03 Setup_Prerequisites | DBs, tables, grants, topics, raw_data dir | `retail.setup.runSetup` | done |
 | code_03_XX Batch_Data_Engg | generate warehouse stock → Parquet upload → global aggregation to MySQL | `retail.batch.runStockPipeline` (+ `runStockGenerator`/`runStockUploader`/`runGlobalAggregator`) | done |
-| code_04_03 Generate a visits stream | Kafka producer of random visit JSON | `retail.streaming` (producer) | todo |
+| code_04_03 Generate a visits stream | Kafka producer of random visit JSON | `retail.streaming.runVisitsProducer [count] [maxDelaySec]` (+ `runVisitsPeek [n]`) | done |
 | code_04_04 Build_a_streaming_analytics_job | Kafka → abandoned carts topic, Redis zset, windowed stats to MySQL | `retail.streaming` | todo |
 | code_04_05 Execute_the_pipeline | console monitor of Kafka + Redis + MySQL | `retail.streaming` (monitor) | todo |
 | code_06_03 Extracting_long_last_actions | JDBC read of long visits → Kafka | `retail.batch` | todo |
